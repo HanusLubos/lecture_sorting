@@ -25,8 +25,40 @@ def read_data(file_name):
     return data
 
 
+def selection_sort(file_name):
+    data = read_data(file_name)
+    numbers = data["series_1"]
+    list_2 = data["series_2"]
+    list_3 = data["series_3"]
+
+    # for item in list_1:
+    #     i = 1
+    #     idx = list_1.index(item)
+    #     num_of_cycles = len(list_1) - idx - 1
+    #     while i <= num_of_cycles:
+    #         if item > list_1[idx + i]:
+    #             cur_idx = list_1.index(item)
+    #         i += 1
+    #     list_1[cur_idx], list_1[cur_idx + i] = list_1[cur_idx + i], list_1[cur_idx]
+    for i in range(len(numbers)):
+
+        min_idx = i
+        for num_idx in range(i + 1,len(numbers)):
+            if numbers[min_idx] > numbers[num_idx]:
+                min_idx = num_idx
+        numbers[i],numbers[min_idx] = numbers[min_idx], numbers[i]
+
+
+
+    return numbers
+
+
+
+
+
 def main():
-    read_data("numbers.csv")
+    list_1 = selection_sort("numbers.csv")
+    print(list_1)
     pass
 
 
