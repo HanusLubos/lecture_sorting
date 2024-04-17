@@ -44,14 +44,27 @@ def selection_sort(file_name, direction="ascending"):
         numbers[i],numbers[min_idx] = numbers[min_idx], numbers[i]
 
     return numbers
-
+def bubble_sort(file_name):
+   data = read_data(file_name)
+   seznam = data["series_1"]
+   j = 0
+   for k in range(j, len(seznam)-1):
+        i = 0
+        for idx in range(i, len(seznam)-k - 1):
+            cur_num = seznam[idx]
+            next_num = seznam[idx + 1]
+            if cur_num > next_num:
+                seznam[idx], seznam[idx + 1] = seznam[idx + 1], seznam[idx]
+            i += 1
+        j += 1
+   return seznam
 
 
 
 
 def main():
-    list_1 = selection_sort("numbers.csv")
-    print(list_1)
+    seznam = bubble_sort("numbers.csv")
+    print(seznam)
     pass
 
 
